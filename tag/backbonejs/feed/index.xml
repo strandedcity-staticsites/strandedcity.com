@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>BackboneJS &#8211; Stranded City</title>
+	<atom:link href="/tag/backbonejs/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Procedural Experiments and Discussion</description>
+	<lastBuildDate>Sun, 02 Jul 2017 05:47:38 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+	<item>
+		<title>Maker Universe in ThreeJS</title>
+		<link>/maker-universe-in-threejs/</link>
+		<pubDate>Mon, 23 Jun 2014 03:19:38 +0000</pubDate>
+		<dc:creator><![CDATA[StrandedCity]]></dc:creator>
+				<category><![CDATA[Projects]]></category>
+		<category><![CDATA[BackboneJS]]></category>
+		<category><![CDATA[KineticJS]]></category>
+		<category><![CDATA[ThreeJS]]></category>
+		<category><![CDATA[UnderscoreJS]]></category>
+		<category><![CDATA[WebGL]]></category>
+
+		<guid isPermaLink="false">http://strandedcity.com/?p=14</guid>
+		<description><![CDATA[What&#8217;s Instructables? When you come to visit us at Instructables, you&#8217;ll see a giant touchscreen that&#8217;s tasked with aiding the explanation. On this touchscreen are about 20,000 points of light, each representing a project on Instructables, the top-performing of all of our featured content. It&#8217;s there to help answer this question for visitors who may...]]></description>
+				<content:encoded><![CDATA[<p>What&#8217;s Instructables?</p>
+<p>When you come to visit us at Instructables, you&#8217;ll see a giant touchscreen that&#8217;s tasked with aiding the explanation. On this touchscreen are about 20,000 points of light, each representing a project on Instructables, the top-performing of all of our featured content. It&#8217;s there to help answer this question for visitors who may not know or be familiar with it at all, and to give an idea of the sheer breadth of passions in our community. The Instructables Galaxy is one part data-visualization, and one part interactive exhibit. It&#8217;s not meant to dig into each project, but to introduce them all, and their relationships to each other.</p>
+<p>The Galaxy project has been ongoing for most of a year at this point. It&#8217;s gone through many iterations. For the first time, it is now small enough to work on the web. <a style="color: #ff5200;" href="http://www.google.com/chrome" target="_blank">You&#8217;ll need Chrome</a>. This fully interactive 3D demonstration will take everything your computer has to offer.</p>
+<h1><a style="color: #ff5200;" href="http://phil-seaton.com/instructables/explorer/explore.php?TARGET=web" target="_blank">ENTER THE GALAXY</a></h1>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Instruction Drawings</title>
+		<link>/instruction-drawings/</link>
+		<pubDate>Wed, 11 Jun 2014 04:12:22 +0000</pubDate>
+		<dc:creator><![CDATA[StrandedCity]]></dc:creator>
+				<category><![CDATA[Projects]]></category>
+		<category><![CDATA[BackboneJS]]></category>
+		<category><![CDATA[MongoDB]]></category>
+		<category><![CDATA[PaperJS]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[UnderscoreJS]]></category>
+
+		<guid isPermaLink="false">http://strandedcity.com/?p=1</guid>
+		<description><![CDATA[Project Link Sol LeWitt was a conceptual artist whose works are an important precendent for many of the &#8220;creative coding&#8221; projects produced today. His large-scale and numerous Wall Drawings consisted of instruction sets — sometimes quite detailed — which were executed by others. The variations in understanding and application of these rule sets by human agents led to...]]></description>
+				<content:encoded><![CDATA[<p><a href="http://strandedcity.com/instructionDrawings/">Project Link</a></p>
+<p><a style="color: #428bca;" href="https://en.wikipedia.org/wiki/Sol_Lewitt" target="_blank">Sol LeWitt</a> was a conceptual artist whose works are an important precendent for many of the &#8220;creative coding&#8221; projects produced today. His large-scale and numerous <a style="color: #428bca;" href="https://en.wikipedia.org/wiki/Sol_Lewitt#Wall_drawings" target="_blank">Wall Drawings</a> consisted of instruction sets — sometimes quite detailed — which were executed by others. The variations in understanding and application of these rule sets by human agents led to beautiful works of art, executed by numerous anonymous workers.</p>
+<p>The Wall Drawings are also procedural, in the computational sense. This project is a riff on the Wall Drawings.</p>
+<p><span style="font-weight: bold;">You are invited to participate. Each drawing is a work in progress, drawn by visitors. As you browse, please contribute. Each drawing appears with instructions, written by other visitors.</span></p>
+<p>Be nice, be responsible. Drawings flouting instructions will be deleted and their authors banned.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

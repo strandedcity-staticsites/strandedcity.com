@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>MongoDB &#8211; Stranded City</title>
+	<atom:link href="/tag/mongodb/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>Procedural Experiments and Discussion</description>
+	<lastBuildDate>Sun, 02 Jul 2017 05:47:38 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.8</generator>
+	<item>
+		<title>Five-Minute RESTful Backend</title>
+		<link>/the-five-minute-restful-backend/</link>
+		<pubDate>Mon, 23 Jun 2014 05:26:05 +0000</pubDate>
+		<dc:creator><![CDATA[StrandedCity]]></dc:creator>
+				<category><![CDATA[Snippets]]></category>
+		<category><![CDATA[MongoDB]]></category>
+		<category><![CDATA[PHP]]></category>
+
+		<guid isPermaLink="false">http://strandedcity.com/?p=20</guid>
+		<description><![CDATA[Need to persist some data, quick and dirty, for a prototype? If you&#8217;re up for ignoring security and performance considerations, I definitely recommend a MongoDB + PHP backend. You can get the whole thing running in five minutes, and you&#8217;ll be free to play around with the JavaScript. That&#8217;s what you were after from the...]]></description>
+				<content:encoded><![CDATA[<p>Need to persist some data, quick and dirty, for a prototype? If you&#8217;re up for ignoring security and performance considerations, I definitely recommend a MongoDB + PHP backend. You can get the whole thing running in five minutes, and you&#8217;ll be free to play around with the JavaScript. That&#8217;s what you were after from the beginning, right?</p>
+<p>1. Sign up for a free MongoLab account, then set up a database and collection. They have a great RESTful API that&#8217;ll prevent you from having to set up any actual Mongo drivers. This makes it easy if you&#8217;re on a shared host.</p>
+<p>2. Include a little PHP script like this one. This script will handle both GET and POST requests. For GET requests it will look up a document (or documents) in a hard-coded database and collection based on a matching &#8220;url&#8221; key, supplied through the query string. For POST requests, it posts a single sample value called &#8220;value&#8221; into the same database and collection.</p>
+<pre class="brush: php; title: ; notranslate">
+&lt;?php
+// Get this at your MongoLab.com user page
+$MONGOLAB_API_KEY = '(Your Key Here)';
+$DB = '(database name)';
+$COLLECTION = '(collection name)';
+$url = &quot;https://api.mongolab.com/api/1/databases/$DB/collections/$COLLECTION?apiKey=$MONGOLAB_API_KEY&quot;;
+
+$method = $_SERVER['REQUEST_METHOD'];
+
+switch ($method) {
+    case 'POST':
+        request_post();
+        break;
+    case 'GET':
+        request_get();
+        break;
+}
+
+function request_get()
+{
+    // As an example, we'll pass the parameter supplied by the user straight to the Mongo Query. This is not secure!
+    header('Content-Type: application/json');
+    global $url;
+    $url = $url .&quot;&amp;q=&quot;. urlencode ( '{&quot;url&quot;: &quot;'.$_GET['url'].'&quot;}' );
+
+    try {
+
+      $ch = curl_init();
+
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+      $response = curl_exec($ch);
+      $error = curl_error($ch);
+      $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+      curl_close($ch);
+
+    } catch (Exception $e) {
+      echo &quot;FAIL&quot;;
+    }
+}
+
+function request_post()
+{
+    global $url;
+
+    // Post some user-supplied stuff to the database. Again, you'll want to verify the data and add security restrictions here!
+    $value = preg_replace(&quot;/[^A-Za-z0-9\-]/&quot;, '', $_POST['value']);
+
+    $data = json_encode(
+      array(
+        &quot;value&quot; =&gt; $value
+      )
+    );
+
+    try {
+      $ch = curl_init();
+
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_POST, 1);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+          'Content-Type: application/json',
+          'Content-Length: ' . strlen($data),
+          )
+      );
+
+      $response = curl_exec($ch);
+      $error = curl_error($ch);
+      $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+      curl_close($ch);
+
+      echo &quot;SAVED&quot;;
+    } catch (Exception $e) {
+      echo &quot;FAIL&quot;;
+    }
+}
+?&gt;
+</pre>
+<p>3. Start storing and retrieving your data!</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Instruction Drawings</title>
+		<link>/instruction-drawings/</link>
+		<pubDate>Wed, 11 Jun 2014 04:12:22 +0000</pubDate>
+		<dc:creator><![CDATA[StrandedCity]]></dc:creator>
+				<category><![CDATA[Projects]]></category>
+		<category><![CDATA[BackboneJS]]></category>
+		<category><![CDATA[MongoDB]]></category>
+		<category><![CDATA[PaperJS]]></category>
+		<category><![CDATA[PHP]]></category>
+		<category><![CDATA[UnderscoreJS]]></category>
+
+		<guid isPermaLink="false">http://strandedcity.com/?p=1</guid>
+		<description><![CDATA[Project Link Sol LeWitt was a conceptual artist whose works are an important precendent for many of the &#8220;creative coding&#8221; projects produced today. His large-scale and numerous Wall Drawings consisted of instruction sets — sometimes quite detailed — which were executed by others. The variations in understanding and application of these rule sets by human agents led to...]]></description>
+				<content:encoded><![CDATA[<p><a href="http://strandedcity.com/instructionDrawings/">Project Link</a></p>
+<p><a style="color: #428bca;" href="https://en.wikipedia.org/wiki/Sol_Lewitt" target="_blank">Sol LeWitt</a> was a conceptual artist whose works are an important precendent for many of the &#8220;creative coding&#8221; projects produced today. His large-scale and numerous <a style="color: #428bca;" href="https://en.wikipedia.org/wiki/Sol_Lewitt#Wall_drawings" target="_blank">Wall Drawings</a> consisted of instruction sets — sometimes quite detailed — which were executed by others. The variations in understanding and application of these rule sets by human agents led to beautiful works of art, executed by numerous anonymous workers.</p>
+<p>The Wall Drawings are also procedural, in the computational sense. This project is a riff on the Wall Drawings.</p>
+<p><span style="font-weight: bold;">You are invited to participate. Each drawing is a work in progress, drawn by visitors. As you browse, please contribute. Each drawing appears with instructions, written by other visitors.</span></p>
+<p>Be nice, be responsible. Drawings flouting instructions will be deleted and their authors banned.</p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>
